@@ -12,3 +12,14 @@
     * https://blog.csdn.net/a286352250/article/details/53156676
     * 这里分为两步走：一个是采用dao采用mybatis的xml+jpa混合模式 ，https://blog.csdn.net/qq_25907831/article/details/86621112
     * 另一个采用
+* 知识点1、tk.mybatis.mapper-https://baijiahao.baidu.com/s?id=1634366904707283647&wfr=spider&for=pc
+* temp
+```
+/**
+        * MIT License Copyright (c) 2019 HermiteZhang
+        * @Author HermiteZhang
+        * @Email zhangw9409@gmail.com
+        * @Date create in ${TIME} ${DATE}
+        * @Desc: 
+        */
+``` 
