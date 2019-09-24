@@ -24,6 +24,7 @@ public class PigeonRepeaterRestController
 {
 
     private final static Logger logger = LoggerFactory.getLogger(PigeonRepeaterRestController.class);
+
     @Resource
     BaseResponse baseResponse;
 
