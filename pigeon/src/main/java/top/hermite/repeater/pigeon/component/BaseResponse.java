@@ -5,6 +5,7 @@ import lombok.Data;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import top.hermite.repeater.pigeon.component.jackson.JsonUtil;
+import top.hermite.repeater.pigeon.model.PigeonRepeaterEntity;
 
 
 @Component
@@ -62,4 +63,12 @@ public class BaseResponse
         return this.code == HttpStatus.OK.value();
     }
 
+    public<T extends PigeonRepeaterEntity> BaseResponse(T entity){
+        this.code = HttpStatus.OK.value();
+        this.data = JsonUtil.obj2str(entity);
+    }
+
+    public BaseResponse(){
+        this.code = HttpStatus.OK.value();
+    }
 }
