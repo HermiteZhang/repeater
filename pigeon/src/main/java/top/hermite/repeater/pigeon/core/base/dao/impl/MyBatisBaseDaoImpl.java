@@ -22,7 +22,6 @@ import java.util.List;
  * @Desc: 通用接口的mybatis/mysql实现
  */
 @Repository("myBatisBaseDao")
-@SuppressWarnings("unchecked")
 public class MyBatisBaseDaoImpl<T extends BaseEntity> implements BaseDao<T>  {
 
     @Resource
