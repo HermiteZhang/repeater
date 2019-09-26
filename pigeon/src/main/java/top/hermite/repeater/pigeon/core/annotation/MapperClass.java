@@ -1,4 +1,4 @@
-package top.hermite.repeater.pigeon.component.annotation;
+package top.hermite.repeater.pigeon.core.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

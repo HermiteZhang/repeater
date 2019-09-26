@@ -1,4 +1,4 @@
-package top.hermite.repeater.pigeon.component.util;
+package top.hermite.repeater.pigeon.core.component.util;
 
 
 import org.springframework.util.Base64Utils;

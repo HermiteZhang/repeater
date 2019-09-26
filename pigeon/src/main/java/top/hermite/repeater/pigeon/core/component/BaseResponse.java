@@ -1,11 +1,11 @@
-package top.hermite.repeater.pigeon.component;
+package top.hermite.repeater.pigeon.core.component;
 
 
 import lombok.Data;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
-import top.hermite.repeater.pigeon.component.jackson.JsonUtil;
-import top.hermite.repeater.pigeon.model.PigeonRepeaterEntity;
+import top.hermite.repeater.pigeon.core.component.jackson.JsonUtil;
+import top.hermite.repeater.pigeon.core.model.dto.PigeonRepeaterEntity;
 
 
 @Component

@@ -1,15 +1,13 @@
 package top.hermite.repeater.pigeon.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
-import top.hermite.repeater.pigeon.component.BaseResponse;
-import top.hermite.repeater.pigeon.model.OrgElement;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import top.hermite.repeater.pigeon.core.component.util.SpringUtil;
+import top.hermite.repeater.pigeon.core.controller.BaseController;
+import top.hermite.repeater.pigeon.core.service.IBaseService;
+import top.hermite.repeater.pigeon.organization.OrgElement;
 import top.hermite.repeater.pigeon.service.OrgElementServ;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
 
 /**
  * MIT License Copyright (c) 2019 HermiteZhang
@@ -21,7 +19,18 @@ import java.util.Date;
  */
 @RestController
 @RequestMapping("/orgElement")
-public class OrgElementRestController {
+public class OrgElementRestController extends BaseController<OrgElement> {
+    private OrgElementServ orgElementServImpl;
+
+    @Override
+    protected OrgElementServ  getServiceImpl(){
+        if(orgElementServImpl==null){
+            orgElementServImpl= (OrgElementServ) SpringUtil.getBean("orgElementService");
+        }
+        System.out.println("son");
+        return orgElementServImpl;
+    };
+    /*
     @Resource
     BaseResponse baseResponse;
     @Autowired
@@ -32,7 +41,10 @@ public class OrgElementRestController {
                              HttpServletRequest request) {
 
         try {
-            baseResponse = orgElementServ.saveElement(element);
+            element.setPdId(IDGenerator.generateID());
+            String sid=element.getPdId();
+            orgElementServ.insert(element);
+            baseResponse .success(sid);
         } catch (Exception e) {
 
             baseResponse.error(HttpStatus.BAD_REQUEST.value(), e.getMessage());
@@ -82,7 +94,7 @@ public class OrgElementRestController {
         }
         return baseResponse;
     }
-
+*/
 
 }
 

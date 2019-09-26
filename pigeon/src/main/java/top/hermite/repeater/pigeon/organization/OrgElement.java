@@ -1,9 +1,11 @@
-package top.hermite.repeater.pigeon.model;
+package top.hermite.repeater.pigeon.organization;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-import top.hermite.repeater.pigeon.component.util.IDGenerator;
+import top.hermite.repeater.pigeon.core.annotation.MapperClass;
+import top.hermite.repeater.pigeon.core.model.BaseEntity;
+import top.hermite.repeater.pigeon.organization.mapper.OrgElementMapper;
 
+import javax.persistence.Table;
 import java.util.Date;
 
 /**
@@ -15,19 +17,8 @@ import java.util.Date;
  * @Desc: 组织架构元素，所有组织架构类的父类
  */
 @Data
-public class OrgElement {
-
-    /**
-     * 主键
-     */
-    protected String pdId;
-
-    public String getPdId() {
-        if (pdId == null) {
-            pdId = IDGenerator.generateID();
-        }
-        return pdId;
-    }
+@MapperClass(OrgElementMapper.class)
+public class OrgElement extends BaseEntity {
 
     /**
      * 类型
@@ -48,7 +39,7 @@ public class OrgElement {
     /**
      * 排序号
      */
-    private Integer pdOrder;
+    private Integer pdOrder=1;
 
 
     /**

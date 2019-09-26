@@ -1,4 +1,4 @@
-package top.hermite.repeater.pigeon.model;
+package top.hermite.repeater.pigeon.core.model.dto;
 
 import lombok.Data;
 

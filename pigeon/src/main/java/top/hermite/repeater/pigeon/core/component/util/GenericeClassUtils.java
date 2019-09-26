@@ -1,4 +1,4 @@
-package top.hermite.repeater.pigeon.component.util;
+package top.hermite.repeater.pigeon.core.component.util;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;

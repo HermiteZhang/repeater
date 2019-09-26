@@ -1,4 +1,4 @@
-package top.hermite.repeater.pigeon.component.jackson;
+package top.hermite.repeater.pigeon.core.component.jackson;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;

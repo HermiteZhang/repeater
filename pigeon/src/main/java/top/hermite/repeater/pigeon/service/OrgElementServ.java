@@ -1,9 +1,8 @@
 package top.hermite.repeater.pigeon.service;
 
-import top.hermite.repeater.pigeon.component.BaseResponse;
-import top.hermite.repeater.pigeon.model.OrgElement;
-
-import java.util.List;
+import top.hermite.repeater.pigeon.core.component.BaseResponse;
+import top.hermite.repeater.pigeon.core.service.IBaseService;
+import top.hermite.repeater.pigeon.organization.OrgElement;
 
 /**
  * MIT License Copyright (c) 2019 HermiteZhang
@@ -13,7 +12,7 @@ import java.util.List;
  * @Date create in 12:14 2019/9/26
  * @Desc:
  */
-public interface OrgElementServ {
+public interface OrgElementServ  extends IBaseService<OrgElement> {
     BaseResponse saveElement(OrgElement element);
 
     BaseResponse removeElement(String pId);
