@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.hermite.repeater.pigeon.dao.OrgElementDao">
+
+    <resultMap id="generalMap" type="top.hermite.repeater.pigeon.model.OrgElement">
+        <id column="pdid" property="pdId"/>
+    </resultMap>
+
+    <insert id="saveElement" keyColumn="id" parameterType="top.hermite.repeater.pigeon.model.OrgElement">
+        insert into org_element (pd_id, pd_name, pd_no, pd_desc) values (#{pdId},#{pdName},#{pdNo},#{pdDesc});;
+    </insert>
+
+    <update id="updateElement" parameterType="top.hermite.repeater.pigeon.model.OrgElement">
+        update org_element
+        set
+            pd_name =#{pdName},
+            pd_no = #{pdNo},
+            pd_desc = #{pdDesc},
+            pd_alter_time = #{pdAlterTime}
+          where pd_id = #{pdId};
+    </update>
+
+    <delete id="removeElement">
+        delete from org_element where  pd_id = #{pdId};
+    </delete>
+
+    <select id="getELement" resultType="top.hermite.repeater.pigeon.model.OrgElement">
+        select * from org_element where  pd_id = #{pdId};
+    </select>
+
+    <select id="listAllElement" resultType="top.hermite.repeater.pigeon.model.OrgElement">
+        select * from org_element ;
+    </select>
+</mapper>
