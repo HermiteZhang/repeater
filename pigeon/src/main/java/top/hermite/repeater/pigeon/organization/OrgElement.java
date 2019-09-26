@@ -2,10 +2,9 @@ package top.hermite.repeater.pigeon.organization;
 
 import lombok.Data;
 import top.hermite.repeater.pigeon.core.annotation.MapperClass;
-import top.hermite.repeater.pigeon.core.model.BaseEntity;
+import top.hermite.repeater.pigeon.core.base.model.BaseEntity;
 import top.hermite.repeater.pigeon.organization.mapper.OrgElementMapper;
 
-import javax.persistence.Table;
 import java.util.Date;
 
 /**

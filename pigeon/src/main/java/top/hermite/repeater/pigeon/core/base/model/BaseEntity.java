@@ -1,4 +1,4 @@
-package top.hermite.repeater.pigeon.core.model;
+package top.hermite.repeater.pigeon.core.base.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

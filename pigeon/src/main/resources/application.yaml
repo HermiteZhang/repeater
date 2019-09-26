@@ -8,6 +8,6 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
 mybatis:
   mapper-locations: classpath:tkmapper/*.xml
-  type-aliases-package: top.hermite.repeater.pigeon.core.model
+  type-aliases-package: top.hermite.repeater.pigeon.core.base.model
   configuration:
     map-underscore-to-camel-case: true

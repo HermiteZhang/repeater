@@ -1,4 +1,4 @@
-package top.hermite.repeater.pigeon.core.dao.impl;
+package top.hermite.repeater.pigeon.core.base.dao.impl;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -7,7 +7,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.Mapper;
 import top.hermite.repeater.pigeon.core.annotation.MapperClass;
-import top.hermite.repeater.pigeon.core.dao.BaseDao;
+import top.hermite.repeater.pigeon.core.base.dao.BaseDao;
+import top.hermite.repeater.pigeon.core.base.model.BaseEntity;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -22,7 +23,7 @@ import java.util.List;
  */
 @Repository("myBatisBaseDao")
 @SuppressWarnings("unchecked")
-public class MyBatisBaseDaoImpl<T> implements BaseDao<T>  {
+public class MyBatisBaseDaoImpl<T extends BaseEntity> implements BaseDao<T>  {
 
     @Resource
     @Qualifier("sessionFactory")
@@ -42,12 +43,11 @@ public class MyBatisBaseDaoImpl<T> implements BaseDao<T>  {
         if(null == mapperClass){
             throw new RuntimeException("没有注解MapperClass");
         }
-        System.out.println(mapperClass.value());
         return (M) getSqlSession().getMapper(mapperClass.value());
     }
 
     @Override
-    public T getEntityById(Class<T> cls, Integer id) {
+    public T getEntityById(Class<T> cls, String id) {
         return this.getMapper(cls).selectByPrimaryKey(id);
     }
 
@@ -67,7 +67,7 @@ public class MyBatisBaseDaoImpl<T> implements BaseDao<T>  {
     }
 
     @Override
-    public void delete(Class<T> cls, Integer id) {
+    public void delete(Class<T> cls, String id) {
         this.getMapper(cls).deleteByPrimaryKey(id);
     }
 

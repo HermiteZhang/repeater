@@ -6,8 +6,14 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Created by Athos on 2016-07-04.
+ * MIT License Copyright (c) 2019 HermiteZhang
+ *
+ * @Author HermiteZhang
+ * @Email zhangw9409@gmail.com
+ * @Date create in 17:38 2019/9/26
+ * @Desc:  标记mapper的class类名
  */
+
 @SuppressWarnings("unchecked")
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
