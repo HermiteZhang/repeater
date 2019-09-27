@@ -1,3 +1,5 @@
+
+
 # pigeon 搭建总结1-初步搭建
 
 ## 1、概述
@@ -83,7 +85,7 @@
 
   
 
-### 3.3 组织工程
+### 3.3、 组织工程
 
 * spring boot配置文件
 
@@ -111,7 +113,7 @@
 
 * 传输对象
 
-  > 统一返回对象BaseResultDto；普通实体对象BaseEntity
+  > 统一返回对象BaseResultDto；示例实体对象BaseEntity
 
   ```java
   public class BaseResultDto {
@@ -136,10 +138,93 @@
   }
   ```
 
+  ```java
+  public class BaseEntity {
+      private int pdId;//主键
+      private Date pdCreateTime;//创建时间
+      private Date pdAlterTime;//最后修改时间
+      private String pdName;//名称
+      
+       //========Constructor 省略。。。==========//
+  
+      //========getter / setter 省略。。。==========//
+  }	
+  ```
+
   
 
-* controller层
+* dao层
 
+  * BaseDao接口定义
+
+  ```java
+  public interface BaseDao {
+      /**
+       * 根据Id查询实体
+       */
+       BaseEntity getEntityById(Integer id);
+  
+      /**
+       * 查询全部
+       */
+       List<BaseEntity> listAll();
+  
+      /**
+       * 新增实体
+       */
+       void insert(BaseEntity entity);
+  
+      /**
+       * 更新实体
+       */
+      void update(BaseEntity entity);
+  
+      /**
+       * 根据Id删除实体
+       */
+      void delete(Integer id);
+  }
+  
+  
+  ```
+
+  * Dao包扫描配置，启动类上加注释
+
+  ```java
+  @MapperScan("com.example.demo.dao")
+  ```
+
+  * Dao实现-xml方式
+  
+  ```xml
+  <?xml version="1.0" encoding="UTF-8" ?>
+  <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+  <mapper namespace="com.example.demo.dao.BaseDao">
+      <insert id="insert" useGeneratedKeys="true" keyColumn="id" parameterType="com.example.demo.model.BaseEntity">
+          insert into base_entity ( pd_alter_time, pd_name) values (#{pdAlterTime},#{pdName});
+      </insert>
+      <update id="update">
+          update base_entity set pd_name = #{pdName}  where pd_id = #{id};
+      </update>
+      <delete id="delete">
+          delete from base_entity where pd_id = #{id};
+      </delete>
+      <select id="getEntityById" resultType="com.example.demo.model.BaseEntity">
+          select * from base_entity where pd_id = #{id};
+      </select>
+      <select id="listAll" resultType="com.example.demo.model.BaseEntity">
+          select * from base_entity;
+      </select>
+  </mapper>
+  ```
+  
+  
+
+
+
+
+* controller层
+  
 * service层
 
 * dao层
