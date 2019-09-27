@@ -7,7 +7,7 @@ spring:
     password: root
     driver-class-name: com.mysql.jdbc.Driver
 mybatis:
-  mapper-locations: classpath:tkmapper/*.xml
+  mapper-locations: classpath:mapper/*.xml
   type-aliases-package: top.hermite.repeater.pigeon.core.base.model
   configuration:
     map-underscore-to-camel-case: true
