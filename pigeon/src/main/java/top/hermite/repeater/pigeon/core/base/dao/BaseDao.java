@@ -37,6 +37,4 @@ public interface BaseDao<T extends BaseEntity> {
      * 根据Id删除实体
      */
     public void delete(final Class<T> cls, final String id);
-
-
 }
